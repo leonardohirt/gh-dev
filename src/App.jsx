@@ -12,7 +12,8 @@ import {
   X, 
   Phone, 
   Mail, 
-  Code2 
+  Code2, 
+  ExternalLink 
 } from 'lucide-react';
 import heroWorkspaceImg from './assets/hero_workspace.jpg';
 import logoImg from './assets/logo.png';
@@ -32,6 +33,7 @@ export default function App() {
   const whatsappPhone = '5542984212013';
   const whatsappDisplay = '(42) 98421-2013';
   const contactEmail = 'ghdevcontato@gmail.com';
+  const showcaseDemoUrl = 'https://advocacia-aurora-react.vercel.app';
 
   const getWhatsAppLink = (message) => {
     return `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
@@ -113,11 +115,29 @@ export default function App() {
                     <span className="dot-btn red"></span>
                     <span className="dot-btn yellow"></span>
                     <span className="dot-btn green"></span>
-                    <span className="mockup-url">https://seu-site.com.br</span>
+                    <a 
+                      href={showcaseDemoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="mockup-url"
+                      title="Clique para abrir a demonstração em nova aba"
+                      style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                    >
+                      <span>{showcaseDemoUrl}</span>
+                      <ExternalLink size={12} style={{ opacity: 0.7 }} />
+                    </a>
                   </div>
-                  <div className="mockup-body">
-                    <img src={heroWorkspaceImg} alt="Desenvolvimento Web ghdev" />
-                  </div>
+
+                  <a 
+                    href={showcaseDemoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="mockup-body"
+                    style={{ display: 'block', cursor: 'pointer' }}
+                    title="Clique para visualizar o site completo"
+                  >
+                    <img src={heroWorkspaceImg} alt="Demonstração Projeto Aurora Associados por ghdev" />
+                  </a>
                 </div>
 
                 <div className="asymmetric-badge">
