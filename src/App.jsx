@@ -10,11 +10,9 @@ import {
   Sparkles, 
   Menu, 
   X, 
-  Terminal, 
-  Code2, 
-  Layers, 
-  CheckCircle2, 
-  Clock 
+  Phone, 
+  Mail, 
+  Code2 
 } from 'lucide-react';
 import heroWorkspaceImg from './assets/hero_workspace.jpg';
 import logoImg from './assets/logo.png';
@@ -31,7 +29,9 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const whatsappPhone = '5511999999999';
+  const whatsappPhone = '5542984212013';
+  const whatsappDisplay = '(42) 98421-2013';
+  const contactEmail = 'ghdev.agency@gmail.com';
 
   const getWhatsAppLink = (message) => {
     return `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
@@ -78,7 +78,7 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Hero Section — Asymmetric Editorial Layout */}
+      {/* Hero Section */}
       <header className="hero-section">
         <div className="container">
           <div className="hero-grid">
@@ -193,7 +193,7 @@ export default function App() {
                 </li>
                 <li>
                   <Check size={18} />
-                  <span>Botão de WhatsApp flutuante estrategico</span>
+                  <span>Botão de WhatsApp flutuante estratégico</span>
                 </li>
                 <li>
                   <Check size={18} />
@@ -363,7 +363,7 @@ export default function App() {
 
               <div className="bespoke-card timeline-step-card">
                 <div className="step-num-badge">04</div>
-                <div className="step-content">
+                <div className="step-body">
                   <h4>Revisões</h4>
                   <p>Você avalia o resultado e solicita ajustes finais para que tudo fique exatamente como imaginou.</p>
                 </div>
@@ -381,7 +381,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Section 4: Call to Action Banner */}
+      {/* Section 4: Call to Action Banner & Direct Contacts */}
       <section id="contato" className="section-padding">
         <div className="container">
           <div className="cta-banner-editorial">
@@ -391,6 +391,26 @@ export default function App() {
               <p className="cta-banner-p">
                 Transforme sua presença digital hoje mesmo com uma solução sob medida para sua necessidade e seu bolso.
               </p>
+
+              <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <a 
+                  href={`mailto:${contactEmail}`} 
+                  style={{ color: '#93c5fd', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '15px' }}
+                >
+                  <Mail size={18} />
+                  <span>{contactEmail}</span>
+                </a>
+
+                <a 
+                  href={getWhatsAppLink('Olá!')} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ color: '#34d399', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '15px' }}
+                >
+                  <Phone size={18} />
+                  <span>{whatsappDisplay}</span>
+                </a>
+              </div>
             </div>
 
             <div className="cta-banner-action-box">
@@ -401,7 +421,7 @@ export default function App() {
                 className="btn-cta-green"
               >
                 <MessageCircle size={20} />
-                <span>Falar agora no WhatsApp</span>
+                <span>Falar no WhatsApp</span>
               </a>
               <span className="cta-response-time">Resposta em até 2 horas</span>
             </div>
@@ -419,11 +439,15 @@ export default function App() {
             <div className="footer-copy">
               © 2026 ghdev. Todos os direitos reservados. Sua Presença Digital, Feita à Mão.
             </div>
+            <div style={{ marginTop: '8px', fontSize: '12px', color: '#64748b' }}>
+              WhatsApp: {whatsappDisplay} | E-mail: {contactEmail}
+            </div>
           </div>
 
           <ul className="footer-nav-list">
-            <li><a href="#">Privacidade</a></li>
-            <li><a href="#">Termos de Uso</a></li>
+            <li>
+              <a href={`mailto:${contactEmail}`}>E-mail</a>
+            </li>
             <li>
               <a 
                 href={getWhatsAppLink('Olá!')} 
@@ -446,7 +470,7 @@ export default function App() {
         aria-label="WhatsApp"
         title="Falar no WhatsApp"
       >
-        <MessageCircle size={30} />
+        <MessageCircle size={28} />
       </a>
     </div>
   );
