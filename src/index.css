@@ -24,6 +24,11 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -36,12 +41,11 @@ body {
   color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.65;
-  overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Background Subtle Technical Grid Pattern */
+/* Background Technical Grid */
 .tech-grid-bg {
   position: absolute;
   top: 0;
@@ -62,9 +66,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
 }
 
-/* Layout & Spacing System */
+/* Layout & Spacing */
 .container {
   width: 100%;
   max-width: 1240px;
@@ -72,20 +78,8 @@ body {
   padding: 0 32px;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-  }
-}
-
 .section-padding {
   padding: 120px 0;
-}
-
-@media (max-width: 768px) {
-  .section-padding {
-    padding: 72px 0;
-  }
 }
 
 /* Typography Hierarchy */
@@ -94,6 +88,7 @@ h1, h2, h3, h4 {
   color: var(--text-primary);
   letter-spacing: -0.03em;
   font-weight: 700;
+  word-break: break-word;
 }
 
 .mono-tag {
@@ -124,7 +119,7 @@ h1, h2, h3, h4 {
   -webkit-text-fill-color: transparent;
 }
 
-/* Bespoke Card Style */
+/* Cards */
 .bespoke-card {
   background: var(--bg-surface-card);
   backdrop-filter: blur(20px);
@@ -153,11 +148,11 @@ h1, h2, h3, h4 {
 }
 
 .navbar.scrolled {
-  background: rgba(6, 9, 17, 0.88);
+  background: rgba(6, 9, 17, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 16px 0;
+  padding: 14px 0;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
@@ -245,30 +240,10 @@ h1, h2, h3, h4 {
   border: none;
   color: #fff;
   cursor: pointer;
+  padding: 4px;
 }
 
-@media (max-width: 868px) {
-  .nav-links {
-    display: none;
-  }
-  .nav-links.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #0b101d;
-    padding: 28px;
-    border-bottom: 1px solid var(--border-subtle);
-    gap: 24px;
-  }
-  .mobile-menu-btn {
-    display: block;
-  }
-}
-
-/* Hero Section — Asymmetric Studio Layout */
+/* Hero Section */
 .hero-section {
   padding-top: 180px;
   padding-bottom: 100px;
@@ -281,24 +256,11 @@ h1, h2, h3, h4 {
   align-items: center;
 }
 
-@media (max-width: 992px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 56px;
-  }
-}
-
 .hero-title {
   font-size: 58px;
   line-height: 1.1;
   margin-top: 16px;
   margin-bottom: 24px;
-}
-
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 38px;
-  }
 }
 
 .hero-lead-text {
@@ -325,6 +287,7 @@ h1, h2, h3, h4 {
 .btn-primary-action {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
   color: #fff;
@@ -348,6 +311,7 @@ h1, h2, h3, h4 {
 .btn-secondary-action {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background: rgba(255, 255, 255, 0.03);
   color: var(--text-primary);
@@ -366,7 +330,7 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
-/* Mockup Frame & Floating Elements */
+/* Mockup Frame */
 .hero-visual-container {
   position: relative;
 }
@@ -406,6 +370,9 @@ h1, h2, h3, h4 {
   padding: 4px 12px;
   border-radius: 6px;
   flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .mockup-body {
@@ -439,15 +406,6 @@ h1, h2, h3, h4 {
   z-index: 10;
 }
 
-@media (max-width: 576px) {
-  .asymmetric-badge {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    margin-top: 24px;
-  }
-}
-
 .badge-icon-box {
   width: 44px;
   height: 44px;
@@ -457,6 +415,7 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .badge-text-title {
@@ -487,13 +446,6 @@ h1, h2, h3, h4 {
   gap: 24px;
 }
 
-@media (max-width: 768px) {
-  .trust-strip {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
-
 .trust-cell {
   display: flex;
   align-items: center;
@@ -516,7 +468,7 @@ h1, h2, h3, h4 {
   color: var(--text-muted);
 }
 
-/* Section Header Component */
+/* Section Header */
 .section-header-editorial {
   margin-bottom: 64px;
 }
@@ -535,32 +487,18 @@ h1, h2, h3, h4 {
   line-height: 1.15;
 }
 
-@media (max-width: 768px) {
-  .editorial-h2 {
-    font-size: 32px;
-  }
-}
-
 .editorial-p {
   font-size: 16px;
   color: var(--text-secondary);
   line-height: 1.7;
 }
 
-/* Pricing Grid — Elevated Cards */
+/* Pricing Grid */
 .pricing-grid-editorial {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   align-items: stretch;
-}
-
-@media (max-width: 992px) {
-  .pricing-grid-editorial {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-    margin: 0 auto;
-  }
 }
 
 .card-pricing {
@@ -615,6 +553,7 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: baseline;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .card-plan-price {
@@ -663,7 +602,7 @@ h1, h2, h3, h4 {
   color: #10b981;
 }
 
-/* Process Section (Como Trabalhamos) — Vertical Interactive Timeline */
+/* Process Section */
 .process-section {
   background: var(--bg-surface-1);
   border-top: 1px solid var(--border-subtle);
@@ -675,12 +614,6 @@ h1, h2, h3, h4 {
   grid-template-columns: 0.85fr 1.15fr;
   gap: 64px;
   align-items: start;
-}
-
-@media (max-width: 992px) {
-  .process-layout-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .sticky-process-sidebar {
@@ -728,7 +661,6 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  position: relative;
 }
 
 .timeline-step-card {
@@ -765,7 +697,7 @@ h1, h2, h3, h4 {
   line-height: 1.65;
 }
 
-/* CTA Banner — High Contrast Dark Card */
+/* CTA Banner */
 .cta-banner-editorial {
   padding: 72px 48px;
   background: linear-gradient(135deg, #0f172a 0%, #0369a1 100%);
@@ -778,14 +710,6 @@ h1, h2, h3, h4 {
   grid-template-columns: 1.2fr 0.8fr;
   gap: 40px;
   align-items: center;
-}
-
-@media (max-width: 868px) {
-  .cta-banner-editorial {
-    grid-template-columns: 1fr;
-    padding: 48px 28px;
-    text-align: center;
-  }
 }
 
 .cta-banner-h2 {
@@ -809,15 +733,10 @@ h1, h2, h3, h4 {
   gap: 12px;
 }
 
-@media (max-width: 868px) {
-  .cta-banner-action-box {
-    align-items: center;
-  }
-}
-
 .btn-cta-green {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   background: #10b981;
   color: #022c22;
@@ -884,7 +803,7 @@ h1, h2, h3, h4 {
   color: #fff;
 }
 
-/* Fixed WhatsApp Float */
+/* Floating WhatsApp Button */
 .whatsapp-floating-btn {
   position: fixed;
   bottom: 32px;
@@ -913,4 +832,211 @@ h1, h2, h3, h4 {
   0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
   70% { box-shadow: 0 0 0 18px rgba(16, 185, 129, 0); }
   100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVENESS (PERFECT BREAKPOINTS)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .section-padding {
+    padding: 80px 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .pricing-grid-editorial {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .process-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .sticky-process-sidebar {
+    position: static;
+  }
+
+  .cta-banner-editorial {
+    grid-template-columns: 1fr;
+    padding: 48px 32px;
+    text-align: center;
+  }
+
+  .cta-banner-action-box {
+    align-items: center;
+    width: 100%;
+  }
+
+  .btn-cta-green {
+    width: 100%;
+  }
+}
+
+@media (max-width: 868px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #0b101d;
+    padding: 28px;
+    border-bottom: 1px solid var(--border-subtle);
+    gap: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-nav-whatsapp span {
+    display: none;
+  }
+
+  .btn-nav-whatsapp {
+    padding: 10px;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero-section {
+    padding-top: 140px;
+    padding-bottom: 60px;
+  }
+
+  .hero-title {
+    font-size: 40px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .hero-lead-text {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-primary-action, .btn-secondary-action {
+    width: 100%;
+  }
+
+  .editorial-h2 {
+    font-size: 32px;
+  }
+
+  .editorial-p {
+    font-size: 15px;
+  }
+
+  .trust-strip {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px 24px;
+    margin-top: 48px;
+  }
+
+  .timeline-step-card {
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .step-num-badge {
+    width: 44px;
+    height: 44px;
+    font-size: 17px;
+    border-radius: 10px;
+  }
+
+  .step-body h4 {
+    font-size: 18px;
+  }
+
+  .step-body p {
+    font-size: 14px;
+  }
+
+  .footer-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .whatsapp-floating-btn {
+    bottom: 24px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .brand-logo-img {
+    height: 32px;
+  }
+
+  .asymmetric-badge {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+  .card-pricing {
+    padding: 32px 20px;
+  }
+
+  .card-plan-price {
+    font-size: 38px;
+  }
+
+  .featured-ribbon {
+    right: 16px;
+    top: -12px;
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+
+  .cta-banner-editorial {
+    padding: 36px 20px;
+    border-radius: 20px;
+  }
+
+  .cta-banner-h2 {
+    font-size: 28px;
+  }
+
+  .cta-banner-p {
+    font-size: 15px;
+  }
 }
