@@ -31,7 +31,7 @@ export default function App() {
 
   const whatsappPhone = '5542984212013';
   const whatsappDisplay = '(42) 98421-2013';
-  const contactEmail = 'ghdev.agency@gmail.com';
+  const contactEmail = 'ghdevcontato@gmail.com';
 
   const getWhatsAppLink = (message) => {
     return `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
